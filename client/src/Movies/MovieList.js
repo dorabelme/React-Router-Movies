@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../index.css';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
+// import Movie from "./Movie";
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
@@ -20,12 +21,16 @@ const MovieList = props => {
     
     getMovies();
   }, []);
-  
+
   return (
     <div className="movie-list">
-      {movies.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+      {movies.map(movie => {
+        const saveMovie = () => {
+        const addToSavedList = props.addToSavedList;
+        addToSavedList(movie)
+        }
+        return (<MovieCard key={movie.id} movie={movie} saveMovie={saveMovie}/>)
+      })}
     </div>
   );
 }

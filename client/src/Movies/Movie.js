@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieCard from './MovieCard';
+import App from "../App";
 
 const Movie = (props) => {
   const [movie, setMovie] = useState();
- 
+  console.log(props.addToSavedList)
   useEffect(() => {
     const id = props.match.params.id;
     // change ^^^ that line and grab the id from the URL
@@ -22,10 +23,10 @@ const Movie = (props) => {
   },[props.match.params.id]);
   
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    const addToSavedList = props.addToSavedList;
+    addToSavedList(movie)
+  }
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -33,7 +34,7 @@ const Movie = (props) => {
 
   const { title, director, metascore, stars } = movie;
   return (
-    <MovieCard movie={movie} />
+    <MovieCard movie={movie} saveMovie={saveMovie} />
   //   <div className="save-wrapper">
   //     <div className="movie-card">
   //       <h2>{title}</h2>

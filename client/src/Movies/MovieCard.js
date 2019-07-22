@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from "./MovieList";
 import { Link } from "react-router-dom";
+import Movie from "./Movie";
 
 const MovieCard = props => {
   if (!props.movie) {
@@ -9,6 +10,12 @@ const MovieCard = props => {
     );
   }
   const { title, director, metascore, stars } = props.movie;
+  console.log(props)
+  console.log(props.saveMovie)
+  const onClick = () => {
+    console.log(props)
+    props.saveMovie();
+  };
 
   return (
     <div className="movie-card">
@@ -26,6 +33,7 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+      <div onClick={onClick} className="save-button">Save</div>
     </div>
   );
 };
