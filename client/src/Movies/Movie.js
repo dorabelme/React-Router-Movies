@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import MovieCard from './MovieCard';
-import App from "../App";
+
 
 const Movie = (props) => {
   const [movie, setMovie] = useState();

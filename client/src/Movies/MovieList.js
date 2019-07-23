@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import '../index.css';
-// import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
-// import Movie from "./Movie";
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])

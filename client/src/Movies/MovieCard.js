@@ -1,7 +1,6 @@
 import React from 'react';
-import MovieList from "./MovieList";
 import { Link } from "react-router-dom";
-import Movie from "./Movie";
+
 
 const MovieCard = props => {
   if (!props.movie) {
